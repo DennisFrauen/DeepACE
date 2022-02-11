@@ -1,0 +1,12 @@
+---
+dataset: "backpain"
+treat: 1  #Id of treatment intervention chosen
+T: 3
+
+methods:
+  - deepace_tar
+load_hyperparam: True
+number_trials: 30
+seed: 3987698
+
+

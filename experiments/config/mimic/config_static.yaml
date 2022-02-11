@@ -1,0 +1,40 @@
+---
+dataset: "mimic"
+treat: 3 #Id of treatment intervention chosen
+n: 1000  # Sample size
+T: 15  # Time series length
+lag: 8  # Lag
+burn: 0  # Burn in
+
+noise_Y: 0.1
+noise_A: 0.5
+
+vitals:
+  - heart rate
+  - sodium
+  - mean blood pressure
+  - glucose
+  - hematocrit
+  - respiratory rate
+  - prothrombin time pt
+  - hemoglobin
+  - creatinine
+  - blood urea nitrogen
+
+static_features:
+
+p: 10  # Covariate dimension
+n_cov_cont: 10 #Number of continuous covariates
+n_cov_discr: 0 #Number of categorical covariates
+
+methods:
+  - dr_forest
+  - dml_forest
+  - dragonnet
+  - tarnet
+
+load_hyperparam: True
+number_exp: 5
+seed: 3843668
+
+

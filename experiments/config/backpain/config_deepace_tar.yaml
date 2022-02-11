@@ -1,0 +1,15 @@
+---
+dataset: "backpain"
+config_name: deepace
+
+methods:
+  - deepace_tar
+
+groups:
+  - 1
+  - 2
+load_hyperparam: True
+number_exp: 20
+seed: 3843668
+
+

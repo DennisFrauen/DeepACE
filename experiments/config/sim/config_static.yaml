@@ -1,0 +1,28 @@
+---
+dataset: "sim"
+treat: 3  #Id of treatment intervention chosen
+n: 1000  # Sample size
+T: 15  # Time series length
+p: 6  # Covariate dimension influencing treatment
+n_cov_cont: 6 #Number of continuous covariates
+n_cov_discr: 0 #Number of categorical covariates
+lag: 5  # Lag
+burn: 0  # Burn in
+
+noise_X: 0.1
+noise_Y: 0.1
+noise_A: 0.2
+
+methods:
+  - dml_forest
+  - dml_kernel
+  - dragonnet
+  - tarnet
+
+
+
+load_hyperparam: True
+number_exp: 5
+seed: 3843668
+
+
