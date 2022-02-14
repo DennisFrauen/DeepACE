@@ -18,13 +18,13 @@ Some baseline models are implemented as R scripts. For running the models, all p
 #### Datasets
 In our paper we used three datasets: Synthetic, semi-synthetic and real-world data. 
 
-##Synthetic data
+###### Synthetic data
 The script for synthetic data generation is datasets/sim.py. Here, the data is simulated accourding to Sec. 5.1. in the paper.
 
-##Semi-synthetic data
+###### Semi-synthetic data
 We use MIMIC-III, which is accessible but must be requested at https://physionet.org/content/mimiciii/1.4/. When MIMIC-III access is granted, the pre-processed data by Wang et. al. (2020) is accessible with instructions in the respective paper. The preprocessed file needs to be added to datasets/mimic and should be named all_hourly_data.h5. The script datasets/mimic/mimic.py extracts covariates and generated synthetic treatments and outcomes.
 
-##Real-world data
+###### Real-world data
 We
 
 #### Reproducing the experiments
