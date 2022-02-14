@@ -25,7 +25,7 @@ The script for synthetic data generation is `datasets/sim.py`. Here, the data is
 We use MIMIC-III, which is accessible but must be requested at https://physionet.org/content/mimiciii/1.4/. When MIMIC-III access is granted, the pre-processed data by Wang et. al. (2020) is accessible with instructions in the respective paper. The preprocessed file needs to be added to `datasets/mimic` and should be named `all_hourly_data.h5`. The script `datasets/mimic/mimic.py` extracts covariates and generated synthetic treatments and outcomes.
 
 ###### Real-world data
-We
+We use the pre-processed data from the clinical study on low back pain patients from Nielsen et al (2017). The data is available in the folder `datasets/backpain/data_preprocessed`.
 
 #### Reproducing the experiments
 The scripts running the experiments are contained in the `/experiments` folder. There are three python scripts, one for each dataset (synthetic = sim, semi-synthetic = mimic and real-world = backpain). 
