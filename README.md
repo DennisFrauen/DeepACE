@@ -28,4 +28,6 @@ For the synthetic and semi-synthetic experiments, one needs to specify a configu
 5. config_gnet: G-Net
 6. config_static: Static baselines
 
+The corresponindg .yaml configuration files can be found in /experiments/conifg/. Here, the "treat" parameter denotes the treatment configuration (setting) and takes values in {1,2,3}.
+
 #### Reproducing hyperparameter tuning
