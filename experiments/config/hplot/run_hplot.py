@@ -3,7 +3,7 @@ import numpy as np
 import models.helpers as helpers
 import joblib
 import yaml
-import experiments.run_experiments as mainrun
+import experiments.run_experiments_sim as mainrun
 import pandas as pd
 
 def load_hyperparam(config, h):

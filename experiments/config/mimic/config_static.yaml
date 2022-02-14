@@ -1,6 +1,6 @@
 ---
 dataset: "mimic"
-treat: 3 #Id of treatment intervention chosen
+treat: 1 #Id of treatment intervention chosen
 n: 1000  # Sample size
 T: 15  # Time series length
 lag: 8  # Lag

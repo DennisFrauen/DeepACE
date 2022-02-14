@@ -38,7 +38,6 @@ def perform_experiments(run_config, load_hyper=True, method_params=None, return_
         #Estimate ACEs
         # Data
         d_train_seq, d_train_seq_unscaled, ates, a_int_1, a_int_2, y_scaler = generate_data(run_config, plot=False)
-        print(f"ATE is {ates[-1]}")
         for method in methods:
             ace = estimate_ace(d_train_seq, d_train_seq_unscaled, a_int_1, a_int_2, method, method_params[method], run_config, y_scaler)
             err_ace = np.absolute(ace - ates[-1])
