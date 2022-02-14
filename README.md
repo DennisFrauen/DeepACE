@@ -17,10 +17,15 @@ Some baseline models are implemented as R scripts. For running the models, all p
 #### Datasets
 
 
-#### Reproducing experiments on synthetic data
+#### Reproducing the experiments
+The scripts running the experiments are contained in the /experiments folder. There are three python scripts, one for each dataset (synthetic = sim, semi-synthetic = mimic and real-world = backpain). 
+For the synthetic and semi-synthetic experiments, one needs to specify a configuration file in the main running procedure before running the script. This indicates the models used to obtain results. of the respective script, which specifies the models used to obtain results. The following configurations are possible:
 
-#### Reproducing experiments on semi-synthetic data
-
-#### Reproducing experiments on real-word data
+1. config_deepace: DeepACE without targeting
+2. config_deepace_tar: DeepACE with targeting
+3. config_ltmle_super: LTMLE with super learner
+4. config_other: other longitudinal baselines
+5. config_gnet: G-Net
+6. config_static: Static baselines
 
 #### Reproducing hyperparameter tuning
