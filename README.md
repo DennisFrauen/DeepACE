@@ -1,10 +1,9 @@
 DeepACE
 ==============================
-![image](https://github.com/DennisFrauen/DeepACE/blob/main/Doc/DeepACE_architecture.png)
 
 #### Introduction
-This repository contains the code to our paper [Estimating average causal effects from patient trajectories](https://github.com/DennisFrauen/DeepACE/blob/main/Doc/DeepACE_submission.pdf).
-Contact: frauen@lmu.de
+This repository contains the code to our paper Estimating average causal effects from patient trajectories
+
 
 #### Requirements
 The project is build with python 3.9.7 and uses the following packages:
