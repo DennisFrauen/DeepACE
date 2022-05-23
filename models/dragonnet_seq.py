@@ -22,9 +22,6 @@ def obj_dragon(g_hat, a_train, y_hat, y_train, alpha):
 
 #Training procedure for encoder
 def train_Encoder_DragonNet(config, data, alpha, epochs=100, callbacks = []):
-    # Neptune Logger
-    # neptune.init(project_qualified_name='dennisfrauen/SeqDragonNet')
-    neptune_logger = NeptuneLogger(project='dennisfrauen/SeqDragonNet')
     # Data
     d_train, d_val = train_test_split(data, test_size=0.2, shuffle=False)
     d_train = torch.from_numpy(d_train.astype(np.float32))
@@ -35,7 +32,7 @@ def train_Encoder_DragonNet(config, data, alpha, epochs=100, callbacks = []):
     enc_dragonnet = Encoder_DragonNet(config=config, input_size=d_train.size(2) - 1, alpha=alpha)
 
     # Train
-    Trainer1 = pl.Trainer(max_epochs=epochs, enable_progress_bar=False, logger=neptune_logger,
+    Trainer1 = pl.Trainer(max_epochs=epochs, enable_progress_bar=False,
                           enable_model_summary=False, callbacks= callbacks)
     Trainer1.fit(enc_dragonnet, train_loader, val_loader)
     #Validation error after training
@@ -137,9 +134,6 @@ class Encoder_DragonNet(general.Causal_Encoder):
 
 def train_Decoder_DragonNet(data, encoder, alpha, tau_max, p_static, hidden_size_lstm, hidden_size_body, hidden_size_head,
                             lr=5e-4):
-    # Neptune Logger
-    # neptune.init(project_qualified_name='dennisfrauen/SeqDragonNet')
-    neptune_logger = NeptuneLogger(project='dennisfrauen/SeqDragonNet')
     n = data.shape[0]
     batch_size = int(n / 10)
     # Explode dataset
@@ -156,7 +150,7 @@ def train_Decoder_DragonNet(data, encoder, alpha, tau_max, p_static, hidden_size
     # Training using ADAM
     dec_dragonnet.optimizer = torch.optim.Adam(dec_dragonnet.parameters(), lr=lr, weight_decay=0)
     # Train
-    Trainer1 = pl.Trainer(max_epochs=50, logger=neptune_logger, enable_progress_bar=False, enable_model_summary=False)
+    Trainer1 = pl.Trainer(max_epochs=50, enable_progress_bar=False, enable_model_summary=False)
     Trainer1.fit(dec_dragonnet, train_loader, val_loader)
     return dec_dragonnet
 

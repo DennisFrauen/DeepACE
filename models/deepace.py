@@ -7,7 +7,6 @@ import torch.nn.functional as fctnl
 from sklearn.model_selection import train_test_split
 import models.general_models as general
 import pytorch_lightning as pl
-from pytorch_lightning.loggers.neptune import NeptuneLogger
 import models.helpers as helpers
 
 

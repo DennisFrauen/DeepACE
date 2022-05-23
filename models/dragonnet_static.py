@@ -5,10 +5,8 @@ import torch.nn as nn
 from torch.utils.data import DataLoader
 import torch.nn.functional as fctnl
 import pytorch_lightning as pl
-from pytorch_lightning.callbacks.early_stopping import EarlyStopping
 from pytorch_lightning.loggers.neptune import NeptuneLogger
 import plotting.plots
-import neptune
 from sklearn.model_selection import train_test_split
 
 
@@ -21,8 +19,6 @@ def obj_dragon(prop_est, prop_true, y_est, y_true, reg):
     #return prop_loss, outcome_loss, prop_loss
 
 def train_DragonNet_PL(data,alpha,type='tarnet',body_size=100,head_size=50):
-    #Neptune Logger
-    neptune_logger = NeptuneLogger(project='dennisfrauen/DragonNet')
     #Data
     d_train, d_val = train_test_split(data,test_size=0.2,shuffle=True)
     d_train = torch.from_numpy(d_train.astype(np.float32))
@@ -40,7 +36,7 @@ def train_DragonNet_PL(data,alpha,type='tarnet',body_size=100,head_size=50):
     #early_stop_callback_ADAM = EarlyStopping(monitor="epoch_loss_val", min_delta=0.00, patience=10, verbose=False, mode="min")
     dragonnet.optimizer = torch.optim.Adam(dragonnet.parameters(),lr=1e-3,weight_decay=0)
     #Train
-    Trainer1 = pl.Trainer(max_epochs=100,logger=neptune_logger,progress_bar_refresh_rate=0,weights_summary=None)#,callbacks=[early_stop_callback_ADAM])
+    Trainer1 = pl.Trainer(max_epochs=100,progress_bar_refresh_rate=0,weights_summary=None)#,callbacks=[early_stop_callback_ADAM])
     Trainer1.fit(dragonnet,train_loader,val_loader)
 
     """
